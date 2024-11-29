@@ -14,7 +14,19 @@ from django.http import HttpRequest
 # respond
 from django.http import HttpResponse
 
+
 # 我们期望用户输入 http://127.0.0.11:8000/index/
 # 来访问视图函数
-def index(request, ):
-    return HttpResponse('ok')
+def index(request):
+    # return HttpResponse('ok')
+
+    # render 的三个参数 render翻译过来就是渲染模版
+    # request, 请求
+    # template_name,
+    # context=None
+
+    # 模拟数据查询
+    context = {
+        'name': '马上双十二，点击有惊喜'
+    }
+    return render(request, 'book/index.html', context=context)
